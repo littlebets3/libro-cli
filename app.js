@@ -22,10 +22,13 @@ readlineSync.promptCLLoop({
     let allBooks = books.list();
 
     console.log(`表示件数: ${allBooks.length}`);
-    allBooks.forEach(book => books.log(book));
+    allBooks.forEach(book => {
+      console.log(`${book.id}: ${book.title}`);
+    });
   },
-  show: (title) => {
-    books.show(title);
+  show: (id) => {
+    let book = books.show(id);
+    books.log(book);
   },
   remove: (title) => {
     console.log('データを削除します。');
@@ -33,8 +36,8 @@ readlineSync.promptCLLoop({
   help: () => {
     console.log('登録: add タイトル 著者名 出版社 ISBN(10桁) 出版日(yyyymmdd)');
     console.log('一覧: list');
-    console.log('詳細: show タイトル');
-    console.log('削除: remove タイトル');
+    console.log('詳細: show id');
+    console.log('削除: remove id');
     console.log('終了: bye');
   },
   bye: () => { return true; }
