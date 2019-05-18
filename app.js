@@ -30,8 +30,9 @@ readlineSync.promptCLLoop({
     let book = books.show(id);
     books.log(book);
   },
-  remove: (title) => {
-    console.log('データを削除します。');
+  remove: (id) => {
+    books.remove(id);
+    console.log('データを削除しまた。');
   },
   help: () => {
     console.log('登録: add タイトル 著者名 出版社 ISBN(10桁) 出版日(yyyymmdd)');

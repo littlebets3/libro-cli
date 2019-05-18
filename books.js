@@ -43,8 +43,10 @@ let show = id => {
   return filteredBooks[0];
 };
 
-let remove = () => {
-
+let remove = id => {
+  let books = fetchAll();
+  let removedBooks= books.filter(book => book.id !== parseInt(id));
+  save(removedBooks);
 };
 
 let log = book => {
